@@ -9,4 +9,16 @@ router.get("/", (req, res) => {
   res.render("index", { restaurants, randomMenuItem });
 });
 
+router.get("/menu/:restaurant", (req, res) => {
+  const restaurantName = req.params.restaurant;
+  const restaurant = restaurants.find((r) => r.name === restaurantName);
+
+  if (restaurant) {
+    const menu = generateMenu(restaurant.cuisine);
+    res.render("menu", { restaurant, menu });
+  } else {
+    res.status(404).send("Restaurant not found");
+  }
+});
+
 module.exports = router;
