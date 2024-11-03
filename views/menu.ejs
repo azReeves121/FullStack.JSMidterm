@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= restaurant.name %> Menu</title>
+  </head>
+  <body>
+    <h1>Menu for <%= restaurant.name %> - <%= restaurant.cuisine %> Cuisine</h1>
+    <ul>
+      <% menu.forEach(item => { %>
+      <li>
+        <strong><%= item.name %></strong> - <%= item.description %> - $<%=
+        item.price %>
+      </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
