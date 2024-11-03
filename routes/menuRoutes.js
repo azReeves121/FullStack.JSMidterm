@@ -21,4 +21,16 @@ router.get("/menu/:restaurant", (req, res) => {
   }
 });
 
+router.get("/alerts", (req, res) => {
+  const alerts = restaurants.map((restaurant) => {
+    const menu = generateMenu(restaurant.cuisine);
+    const specialItems = menu.filter((item) => item.isSpecial);
+    return {
+      name: restaurant.name,
+      specials: specialItems.length ? specialItems : "No current alerts",
+    };
+  });
+  res.render("alerts", { alerts });
+});
+
 module.exports = router;
