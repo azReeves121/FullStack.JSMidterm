@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Menu Alerts</title>
+  </head>
+  <body>
+    <h1>Daily Specials and Alerts</h1>
+    <% alerts.forEach(alert => { %>
+    <h2><%= alert.name %></h2>
+    <% if (alert.specials !== 'No current alerts') { %>
+    <ul>
+      <% alert.specials.forEach(special => { %>
+      <li>
+        <strong><%= special.name %></strong> - <%= special.description %> - $<%=
+        special.price %>
+      </li>
+      <% }); %>
+    </ul>
+    <% } else { %>
+    <p><%= alert.specials %></p>
+    <% } %> <% }); %>
+  </body>
+</html>
