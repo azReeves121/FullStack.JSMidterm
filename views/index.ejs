@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home Page</title>
+  </head>
+  <body>
+    <h1>Welcome to the Restaurant Selector</h1>
+    <label for="restaurantDropdown">Choose a restaurant:</label>
+    <select id="restaurantDropdown">
+      <% restaurants.forEach(restaurant => { %>
+      <option value="<%= restaurant.name %>"><%= restaurant.name %></option>
+      <% }); %>
+    </select>
+
+    <h2>Featured Menu Item</h2>
+    <p>
+      <%= randomMenuItem.name %>: <%= randomMenuItem.description %> - $<%=
+      randomMenuItem.price %>
+    </p>
+  </body>
+</html>
