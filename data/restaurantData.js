@@ -100,6 +100,10 @@ const generateMenu = (cuisine) => {
   const itemCount = Math.floor(Math.random() * 6) + 5;
   return Array.from({ length: itemCount }, () => getRandomMenuItem(cuisine));
 };
+const cuisineItems = items[cuisine];
+if (!cuisineItems || cuisineItems.length === 0) {
+  throw new Error(`No menu items found for cuisine: ${cuisine}`);
+}
 
 module.exports = {
   restaurants,
