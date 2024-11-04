@@ -1,9 +1,9 @@
 const restaurants = [
-  { name: "The Gourmet Bistro", cuisine: "" },
-  { name: "Spicy Kitchen", cuisine: "" },
-  { name: "Healthy Eats", cuisine: "" },
-  { name: "Comfort Diner", cuisine: "" },
-  { name: "Sweet Tooth Bakery", cuisine: "" },
+  { name: "The Gourmet Bistro", cuisine: "French" },
+  { name: "Spicy Kitchen", cuisine: "Chinese" },
+  { name: "Healthy Eats", cuisine: "American" },
+  { name: "Comfort Diner", cuisine: "American" },
+  { name: "Sweet Tooth Bakery", cuisine: "French" },
 ];
 
 const cuisines = ["Italian", "Chinese", "Indian", "American", "French"];
@@ -100,10 +100,6 @@ const generateMenu = (cuisine) => {
   const itemCount = Math.floor(Math.random() * 6) + 5;
   return Array.from({ length: itemCount }, () => getRandomMenuItem(cuisine));
 };
-const cuisineItems = items[cuisine];
-if (!cuisineItems || cuisineItems.length === 0) {
-  throw new Error(`No menu items found for cuisine: ${cuisine}`);
-}
 
 module.exports = {
   restaurants,
